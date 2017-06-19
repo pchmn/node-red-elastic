@@ -1,0 +1,16 @@
+{
+  "name": "node-red-elastic",
+  "version": "0.0.2",
+  "description": "Save to elasticsearch",
+  "keywords": [
+    "node-red"
+  ],
+  "node-red": {
+    "nodes": {
+      "app": "app/app.js"
+    }
+  },
+  "dependencies": {
+    "elasticsearch": "^13.1.1"
+  }
+}
