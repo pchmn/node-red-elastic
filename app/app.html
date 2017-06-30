@@ -1,7 +1,15 @@
 <script type="text/x-red" data-template-name="elastic">
     <div class="form-row">
         <label for="node-input-host"><i class="fa fa-tag"></i> Host</label>
-        <input type="text" id="node-input-host" placeholder="Name">
+        <input type="text" id="node-input-host" placeholder="Host">
+    </div>
+    <div class="form-row">
+        <label for="node-input-documentIndex"><i class="fa fa-book"></i> Index</label>
+        <input type="text" id="node-input-documentIndex" placeholder="Index">
+    </div>
+    <div class="form-row">
+        <label for="node-input-documentType"><i class="fa fa-file"></i> Type</label>
+        <input type="text" id="node-input-documentType" placeholder="Type">
     </div>
 </script>
 
@@ -10,7 +18,9 @@
         category: 'function',
         color: '#A6BBCF',
         defaults: {
-            host: {value:"localhost:9200"}
+            host: {value:"localhost:9200"},
+            documentIndex: {value: ""},
+            documentType: {value: ""}
         },
         inputs:1,
         outputs:1,

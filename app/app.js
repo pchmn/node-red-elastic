@@ -5,6 +5,8 @@ module.exports = function(RED) {
   function saveToElastic(config) {
       RED.nodes.createNode(this, config);
       this.host = config.host;
+      this.documentIndex = config.documentIndex;
+      this.documentType = config.documentType;
       var node = this;
 
       node.on('input', function(msg) {
@@ -14,7 +16,12 @@ module.exports = function(RED) {
           requestTimeout: Infinity
         });
 
-        client.index(msg.payload, function (error, response) {
+        const data = {};
+        data.index = node.documentIndex || msg.documentIndex;
+        data.type = node.documentType || msg.documentType;
+        data.body = msg.payload;
+
+        client.index(data, function (error, response) {
           if(error)
             node.error(error, msg);
           else {
